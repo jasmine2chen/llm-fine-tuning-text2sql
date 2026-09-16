@@ -2,7 +2,7 @@
 
 Fine-tune `Qwen/Qwen2.5-7B-Instruct` for text-to-SQL generation using **Unsloth**-accelerated QLoRA, with **execution-based SQL evaluation** and **W&B hyperparameter sweeps**.
 
-## Why this exists
+## Objectives
 
 Most text-to-SQL tutorials evaluate with exact string matching — which is fundamentally broken. `SELECT a, b FROM t` and `SELECT b, a FROM t` return the same data but fail an exact match. This project uses **execution-based evaluation**: both the predicted and reference queries run against an in-memory SQLite database, and accuracy is measured by whether they produce identical result sets. This is the gold standard for text-to-SQL evaluation.
 
