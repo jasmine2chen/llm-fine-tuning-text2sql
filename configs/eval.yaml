@@ -1,0 +1,13 @@
+eval_samples: 500
+max_new_tokens: 256
+temperature: 0.1
+do_sample: false
+
+execution_eval:
+  enabled: true
+  timeout_seconds: 5
+
+metrics:
+  - exact_match
+  - execution_accuracy
+  - valid_sql_rate

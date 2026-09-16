@@ -1,0 +1,27 @@
+model_id: "Qwen/Qwen2.5-7B-Instruct"
+dataset_id: "b-mc2/sql-create-context"
+dataset_samples: 12500
+test_ratio: 0.2
+max_seq_length: 2048
+output_dir: "./checkpoints/text2sql"
+
+training:
+  num_epochs: 3
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2e-4
+  lr_scheduler: "cosine"
+  warmup_ratio: 0.03
+  max_grad_norm: 0.3
+  bf16: true
+  packing: true
+
+lora:
+  r: 128
+  alpha: 64
+  dropout: 0.05
+  target_modules: "all-linear"
+
+wandb:
+  project: "text2sql-finetune"
+  enabled: true

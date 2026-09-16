@@ -1,0 +1,39 @@
+[project]
+name = "text2sql-finetune"
+version = "0.1.0"
+description = "Fine-tune LLMs for text-to-SQL with Unsloth QLoRA, execution-based evaluation, and W&B experiment tracking"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Jasmine Chen" }]
+dependencies = [
+    "torch>=2.4",
+    "unsloth",
+    "trl>=0.14",
+    "transformers>=4.46",
+    "peft>=0.14",
+    "datasets>=2.21",
+    "accelerate>=0.34",
+    "bitsandbytes>=0.44",
+    "wandb>=0.18",
+    "sqlparse>=0.5",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "typer>=0.12",
+]
+[project.optional-dependencies]
+serve = ["vllm>=0.6"]
+dev = ["ruff>=0.7", "pyright>=1.1", "pytest>=8.0", "pytest-cov>=5.0"]
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

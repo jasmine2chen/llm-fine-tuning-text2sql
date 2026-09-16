@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+.pytest_cache/
+checkpoints/
+wandb/
+train_dataset.json
+test_dataset.json
+.env
